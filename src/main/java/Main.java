@@ -36,7 +36,7 @@ public class Main {
             input = Check.getHownum(input);
         } catch (NullnumException e) {
             System.out.println(e.getMessage());
-            //  continue;
+            //  continue;  
         }
         result = Senda.checkOrg(input,keyapi);
         System.out.println("Информация по организации:" + result);
