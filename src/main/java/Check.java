@@ -1,13 +1,13 @@
 public class Check {
-    public static int getNum(String input) throws Exception {
+    public static int getNum(String input) throws Exception { // метод нигде не используется
         boolean resultNumeric = Numeric(input);
 
-        if (resultNumeric == (true)) {
-            int b = Integer.parseInt(input);
+        if (resultNumeric == (true)) {  //так не пишут. if (resultNumeric)
+            int b = Integer.parseInt(input); // переменная серая  не используется
             boolean c = NegativeNumber(Integer.parseInt(input));
-            if (c == true) {
+            if (c == true) { // так не пишут
                 throw new NegativeException("Число должно быть положительным!!!");
-            } else
+            } else // забыл фигурные скобки
                 return Integer.parseInt(getChecknum(input));
 //        } else {
 //            if (resultNumeric == (false)) ;
@@ -61,7 +61,7 @@ public class Check {
     public static String getHownum(String a) throws NullnumException {     //проверяем сколько чисел введено в строку
         boolean resultNum = HowmachMas(a);
 
-        if (resultNum == (true)) {
+        if (resultNum == (true)) { //так не пишут
             return a;
         } else {
             throw new NullnumException("Введите ИНН из 10 чисел");
@@ -82,6 +82,7 @@ public class Check {
         return false;
     }
 
+    //говнокод. аналог  if (!space). и фигурные скобки забываешь
     public static String getProbel(String input) throws ProbelException {
         boolean space = containsWhiteSpace(input);
         if (space == false)
@@ -90,11 +91,43 @@ public class Check {
             throw new ProbelException("Числа должны быть без пробела!");
     }
 
+    //так будет лучше
+//    public static String getProbel(String input) throws ProbelException {
+//        boolean space = containsWhiteSpace(input);
+//        if (!space) {
+//            return input;
+//        }
+//        else {
+//            throw new ProbelException("Числа должны быть без пробела!");
+//        }
+//    }
+
+    //а так еще лучше
+//    public static String getProbel(String input) throws ProbelException {
+//        if (!containsWhiteSpace(input)) {
+//        return input;
+//    }
+//        else {
+//            throw new ProbelException("Числа должны быть без пробела!");
+//        }
+//    }
+
+/**
+ * опять же используй более ясные именна переменных
+ * я так понял space показывает нам о том есть пробелы или нет
+ * имя isContainsSpace было бы более логично
+ * если флаг в тру, то я сразу понимаю, что этоСодержитПробел
+ */
     public static boolean containsWhiteSpace(String input) {
         boolean space = false;
         if (input != null) {
             for (int i = 0; i < input.length(); i++) {
                 if (input.charAt(i) == ' ') {
+                    /**
+                     * опять тебе среда подсказывает
+                     * space серым  значит не используется
+                     * можно оставить просто return true;
+                     */
                     space = true;
                     return true;
                 }
