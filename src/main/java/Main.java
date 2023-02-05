@@ -11,6 +11,12 @@ public class Main {
         String keyapi = "5ba4a553d3605f0f89a02b2e0cc0182300c8bab8";
         String result;
 
+        /**
+         * уверен что этот блок нужен?
+         * очень похоже на gui интерфейс
+         * а у тебя тут все через командную строку
+         * соответственно и класс ToActionListener не нужен
+         */
         JButton button = new JButton("Найти");
         ActionListener actionListener = new ToActionListener();
         button.addActionListener(actionListener);
